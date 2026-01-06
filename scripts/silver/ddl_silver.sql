@@ -35,9 +35,9 @@ CREATE TABLE IF NOT EXISTS silver.crm_sales_details (
     sls_ord_num VARCHAR(50),
     sls_prd_key VARCHAR(50),
     sls_cust_id INT,
-    sls_ship_dt INT,           -- raw date format
-    sls_due_dt INT,            -- raw date format
-    sls_sales INT,
+    sls_ship_dt DATE,          
+    sls_due_dt DATE,            
+    sls_sales DATE,
     sls_quantity INT,
     sls_price INT,
     created_at DATE DEFAULT CURRENT_DATE,
