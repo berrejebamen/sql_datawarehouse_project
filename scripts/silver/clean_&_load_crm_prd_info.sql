@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS silver.crm_prd_info (
 --
 insert into silver.crm_prd_info (
                 prd_id,
-                cat_id,   -- Required to match the Silver table DDL exactly
+                cat_id,   -- Changed the Silver table DDL above to match this column change exactly
                 prd_key,
                 prd_nm,
                 prd_cost,
