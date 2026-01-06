@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS silver.crm_prd_info (
     prd_start_dt DATE,
     prd_end_dt DATE,
     metadata_created_at DATE DEFAULT CURRENT_DATE,
-    metadat_source_file VARCHAR(50) DEFAULT 'crm/prd_info.csv'
+    metadata_source_file VARCHAR(50) DEFAULT 'crm/prd_info.csv'
 );
 
 -- ---------------------------------------------------------------------------
