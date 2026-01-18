@@ -13,7 +13,7 @@
 --   - Rank countries by revenue contribution
 --
 -- Visualization:
---   - Bar chart or table in Apache Superset
+--   - Bar chart or table Apache Superset
 --   - Helps business users identify top-performing markets
 --   - Supports strategic decisions around regional sales focus
 -- ===============================================================
