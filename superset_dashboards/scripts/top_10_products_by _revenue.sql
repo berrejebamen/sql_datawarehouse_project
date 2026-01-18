@@ -12,7 +12,7 @@
 --   - Return the top 10 performing products
 --
 -- Visualization:
---   - Bar chart (Top N products)
+--   - Bar chart (Top 10 products)
 --   - Used by business stakeholders to identify best-selling products
 -- ===============================================================
 SELECT 
