@@ -23,15 +23,15 @@ The central fact table containing sales transaction records. Each row represents
 
 | Column | Data Type | Key Type | Description |
 |--------|-----------|----------|-------------|
-| `order_number` | VARCHAR/INT | **PK** | Unique identifier for each sales order. Primary key for the fact table. |
-| `product_key` | INT | **FK1** | Foreign key reference to `gold.dim_products.product_key`. Links the sale to product details. |
+| `order_number` | VARCHAR | **PK** | Unique identifier for each sales order. Primary key for the fact table. |
+| `product_key` | VARCHAR | **FK1** | Foreign key reference to `gold.dim_products.product_key`. Links the sale to product details. |
 | `customer_key` | INT | **FK2** | Foreign key reference to `gold.dim_customers.customer_key`. Links the sale to customer information. |
 | `order_date` | DATE | - | Date when the order was placed by the customer. |
 | `shipping_date` | DATE | - | Date when the order was shipped to the customer. |
 | `due_date` | DATE | - | Expected delivery date or payment due date for the order. |
-| `sales_amount` | DECIMAL | - | Total sales value for the order. **Calculated as**: `quantity * price`. |
+| `sales_amount` | INT | - | Total sales value for the order. **Calculated as**: `quantity * price`. |
 | `quantity` | INT | - | Number of units ordered in this transaction. |
-| `price` | DECIMAL | - | Unit price of the product at the time of sale. |
+| `price` | INT | - | Unit price of the product at the time of sale. |
 
 **Business Rules:**
 - Sales Amount Calculation: `sales_amount = quantity * price`
@@ -49,7 +49,7 @@ Contains detailed customer information for analysis and segmentation. Provides d
 | Column | Data Type | Key Type | Description |
 |--------|-----------|----------|-------------|
 | `customer_key` | INT | **PK** | Surrogate key. Unique identifier for each customer in the data warehouse. |
-| `customer_id` | VARCHAR/INT | - | Natural key. Business identifier for the customer from the source system. |
+| `customer_id` | INT | - | Natural key. Business identifier for the customer from the source system. |
 | `customer_number` | VARCHAR | - | Customer account number or reference number used in business operations. |
 | `first_name` | VARCHAR | - | Customer's first name. |
 | `last_name` | VARCHAR | - | Customer's last name. |
@@ -57,7 +57,7 @@ Contains detailed customer information for analysis and segmentation. Provides d
 | `gender` | VARCHAR | - | Customer's gender (e.g., Male, Female, Other, Prefer not to say). |
 | `create_date` | DATE | - | Date when the customer record was created in the system. |
 | `birthdate` | DATE | - | Customer's date of birth. Used for age-based analysis and marketing campaigns. |
-| `country` | VARCHAR | - | Country of residence for the customer. Used for geographic analysis. |
+| `country` | TEXT | - | Country of residence for the customer. Used for geographic analysis. |
 
 **Purpose:**
 - Enables customer segmentation and demographic analysis
@@ -73,10 +73,10 @@ Contains comprehensive product information including categorization, pricing, an
 | Column | Data Type | Key Type | Description |
 |--------|-----------|----------|-------------|
 | `product_key` | INT | **PK** | Surrogate key. Unique identifier for each product in the data warehouse. |
-| `product_id` | VARCHAR/INT | - | Natural key. Business identifier for the product from the source system. |
-| `product_number` | VARCHAR | - | Product SKU or reference number used in inventory and catalog systems. |
+| `product_id` | VARCHAR | - | Natural key. Business identifier for the product from the source system. |
+| `product_number` | INT | - | Product SKU or reference number used in inventory and catalog systems. |
 | `product_name` | VARCHAR | - | Full descriptive name of the product. |
-| `product_cost` | DECIMAL | - | Cost of goods sold (COGS) or acquisition cost for the product. |
+| `product_cost` | VARCHAR | - | Cost of goods sold (COGS) or acquisition cost for the product. |
 | `product_line` | VARCHAR | - | High-level product line classification (e.g., Electronics, Apparel, Home Goods). |
 | `product_start_date` | DATE | - | Date when the product was introduced or became available for sale. |
 | `category` | VARCHAR | - | Primary product category for classification and reporting. |
