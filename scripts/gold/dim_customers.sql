@@ -28,7 +28,7 @@ select
     -- Prefer CRM gender when available; otherwise fallback to ERP
     case 
         when csi.cst_gndr != 'Unkown' then csi.cst_gndr
-        else COALESCE(ela.cid, 'Unknown')  
+        else COALESCE(ela.cst_gndr, 'Unknown')  
     end as gender,
 
     -- Metadata
